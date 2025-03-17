@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="Project_tracker.css">
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <input type="text" id="search" placeholder="Search Projects..." onkeyup="searchProjects()">
+        </div>
+    </nav>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Project Link</th>
+                </tr>
+            </thead>
+            <tbody id="projectTable">
+                <tr>
+                    <td>Portfolio Website</td>
+                    <td><a href="https://port-folio-smit-pipalavas-projects.vercel.app/" target="_blank">View Project</a></td>
+                </tr>
+                <tr>
+                    <td>Human Benchmark</td>
+                    <td><a href="https://human-benchmark-red.vercel.app/" target="_blank">View Project</a></td>
+                </tr>
+                <tr>
+                    <td>VGEC Tech</td>
+                    <td><a href="https://vgec-tech.vercel.app/" target="_blank">View Project</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function searchProjects() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let rows = document.querySelectorAll("#projectTable tr");
+            
+            rows.forEach(row => {
+                let projectName = row.cells[0].textContent.toLowerCase();
+                if (projectName.includes(input)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+
